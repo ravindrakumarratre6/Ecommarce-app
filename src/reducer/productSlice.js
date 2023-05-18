@@ -15,32 +15,8 @@ const productSlice = createSlice({
     isLoding: false,
     data: [],
     isError: false,
-    totalProduct:0,
-    totalAmount:0
   },
   reducers: {
-    // addproduct actions
-    addProduct: (state, action) => {
-     state.data.push(action.payload);
-     state.totalProduct +=1
-    },
-
-    // removeproduct action
-    removeProduct:(state,action)=>{
-      const filterRemove =state.data.filter((item)=>item.id !== action.payload)
-       console.log("filterRemove",filterRemove)
-        state.data = filterRemove
-        state.totalProduct -=1
-      // console.log(action.payload); 
-    },
-    
-    // editproduct action
-    // editProduct:(state,action)=>{
-    //   const findElement = state.data.findIndex(item=>item.id === action.payload.id)
-    //   state.data[findElement] = {...state.data,...action.payload}
-    //   console.log("findElement",findElement)
-    //   console.log("action payload",action.payload)
-    // }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.pending, (state) => {
@@ -57,5 +33,5 @@ const productSlice = createSlice({
     });
   },
 });
-export const { addProduct,removeProduct} = productSlice.actions;
+export const {} = productSlice.actions;
 export default productSlice.reducer;

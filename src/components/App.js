@@ -5,8 +5,6 @@ import { fetchProducts } from "../reducer/productSlice";
 import ProductItem from "./ProductItem";
 import Navbar from "./Navbar";
 import Carts from "./Carts";
-import AddProduct from "./AddProduct";
-// import EditProduct from "./EditProduct";
 function App() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
@@ -26,7 +24,7 @@ function App() {
             element={<ProductItem product={state.product.data} />}
           />
           <Route path="/carts/:id" element ={<Carts/>}/>
-          <Route path="/addproduct" element={<AddProduct />} />
+          {/* <Route path="/addproduct" element={<AddProduct />} /> */}
           {/* <Route path="/edit/:id" element={<EditProduct />} /> */}
         </Routes>
       </BrowserRouter>
