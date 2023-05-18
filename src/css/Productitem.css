@@ -1,0 +1,51 @@
+/*  cart container*/
+.cart-container {
+  width: 15rem;
+  height: 21rem;
+  border-radius: 12%;
+  margin: 0.299rem;
+  border: 0.01rem solid black;
+  position: relative;
+  box-shadow: 0 0 0.39rem rgb(10, 10, 10);
+}
+
+.cart-container:hover {
+  transform: scale(1.049);
+}
+
+/* cart heading */
+.cart-heading {
+  text-align: center;
+  font-weight: 500;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: rgb(253, 251, 251);
+  background-color: rgba(0, 0, 0, 0.911);
+}
+/* cart img */
+.cart-img img {
+  width: 9rem;
+  height: 10rem;
+  border-radius: 30%;
+  margin: 0.8rem 3.49rem 0;
+  transform: scale(1.08);
+}
+/* cart value price and rating */
+.cart-value {
+  color: rgb(8, 0, 245);
+  font-size: 0.92rem;
+  margin-left: 5rem;
+  font-weight: 300;
+}
+/* buttons */
+.addtobtn {
+  position: relative;
+  right: 0.46rem;
+}
+/* romove button */
+.remove {
+  color: rgb(230, 82, 82);
+}
+.remove:hover {
+  background-color: black;
+  margin: 0.2rem;
+}
