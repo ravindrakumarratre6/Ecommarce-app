@@ -23,9 +23,7 @@ function App() {
             path="/"
             element={<ProductItem product={state.product.data} />}
           />
-          <Route path="/carts/:id" element ={<Carts/>}/>
-          {/* <Route path="/addproduct" element={<AddProduct />} /> */}
-          {/* <Route path="/edit/:id" element={<EditProduct />} /> */}
+          <Route path="/carts/:id" element={<Carts />} />
         </Routes>
       </BrowserRouter>
     </div>

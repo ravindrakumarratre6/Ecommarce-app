@@ -1,6 +1,3 @@
-
-
-
 import { useSelector } from "react-redux";
 import "../css/Navbar.css";
 import { Link } from "react-router-dom";
@@ -9,7 +6,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Navbar = () => {
   const totalProduct = useSelector((state) => state.cart.totalProduct);
   const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
-
   return (
     <div className="container">
       <ul className="nav">
@@ -20,7 +16,13 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <img src="https://cdn-icons-png.flaticon.com/512/1184/1184438.png" alt="Logo" />
+          {isAuthenticated && (
+            <img
+              src={user.picture}
+              alt="Logo"
+              style={{ borderRadius: "50%" }}
+            />
+          )}
         </li>
         <li>
           {isAuthenticated && <span className="user-name">{user.name}</span>}
@@ -28,9 +30,7 @@ const Navbar = () => {
         {isAuthenticated ? (
           <li>
             <button
-              onClick={() =>
-                logout({ returnTo: window.location.origin })
-              }
+              onClick={() => logout({ returnTo: window.location.origin })}
             >
               Log Out
             </button>
@@ -45,7 +45,10 @@ const Navbar = () => {
         </li>
         <li>
           <Link to="/carts/:id" style={{ textDecoration: "none" }}>
-            <img src="https://cdn-icons-png.flaticon.com/512/891/891419.png" alt="Cart" />
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/891/891419.png"
+              alt="Cart"
+            />
           </Link>
         </li>
       </ul>

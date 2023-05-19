@@ -5,7 +5,6 @@ import { removeProduct } from "../reducer/cartSlice";
 import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
-
 const Cart = () => {
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
@@ -67,7 +66,7 @@ const Cart = () => {
                 <h3>{val.title}</h3>
               </div>
               <div className="price">
-                <p>${val.price}</p>
+                <p ><i class="fa-solid fa-indian-rupee-sign fa-xs"></i>{val.price}</p>
               </div>
               <div className="btn">
                 <button onClick={() => decreQty()}>-</button>
@@ -85,7 +84,7 @@ const Cart = () => {
             </div>
           ))}
           <div>
-            <h2 className="subtotal">Subtotal: ${calculateSubtotal()}</h2>
+            <h2 className="subtotal">Subtotal: <i class="fa-solid fa-indian-rupee-sign fa-xs"></i>{calculateSubtotal()}</h2>
           </div>
           <div className="checkout">
             <Link to="/">

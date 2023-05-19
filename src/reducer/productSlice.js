@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchProducts = createAsyncThunk("fetchProduct", async () => {
-//  fetch api call
+  //  fetch api call
   const res = await fetch(
     "https://my-json-server.typicode.com/ravindrakumarratre6/ECOM/Products"
   );
@@ -16,8 +16,7 @@ const productSlice = createSlice({
     data: [],
     isError: false,
   },
-  reducers: {
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.pending, (state) => {
       state.isLoding = true;
@@ -33,5 +32,4 @@ const productSlice = createSlice({
     });
   },
 });
-export const {} = productSlice.actions;
 export default productSlice.reducer;

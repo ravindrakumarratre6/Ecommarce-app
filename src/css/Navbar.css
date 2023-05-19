@@ -6,8 +6,8 @@
   justify-content: center;
   border: 1px solid rgb(4, 4, 4);
   list-style-type: none;
-  box-shadow: 0.011rem 0.01rem 0.2rem rgb(143, 148, 52);
-  background-color: rgb(59, 57, 57);
+  box-shadow: 0.011rem 0.01rem 0.2rem rgb(253, 206, 255);
+  background-color: rgba(44, 146, 180, 0.692);
 }
 
 /* nav img */
@@ -28,10 +28,11 @@
 
 /* e-commerce nav heading */
 .ecom-nav {
-  color: rgb(235, 219, 232);
+  color: rgb(26, 36, 98);
   text-decoration: none;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 /* total product container */
@@ -51,12 +52,11 @@
 .total {
   width: 1.079rem;
   height: 1.02rem;
-  color:black;
+  color: black;
   text-align: center;
-  background-color: white;
+  background-color:rgb(10, 253, 127);
   border-radius: 50%;
   position: relative;
   left: 3.2rem;
   bottom: 0.79rem;
 }
-
