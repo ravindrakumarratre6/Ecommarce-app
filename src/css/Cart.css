@@ -7,9 +7,9 @@
 
 .cart {
   width: 28rem;
-  height: 17rem;
+  /* height: 17rem; */
   border: 1px solid black;
-  margin: 5rem auto;
+  margin: 2rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,12 +22,13 @@
 }
 .heading h3 {
   text-align: center;
-  font-size: small;
+  font-size: 1rem;
   font-family: "Arial Narrow", sans-serif;
-  color: rgb(13, 34, 82);
+  color: #3F51B5;
   margin: 0;
   position: relative;
-  left: 6rem;
+  left: 4.5rem;
+  font-weight: 00;
 }
 
 .imgs img {
@@ -42,6 +43,10 @@
   position: relative;
   right: 8.5rem;
   bottom: 2rem;
+
+  color: red;
+  font-weight: 700;
+  font-size: 1.03rem;
 }
 .btn {
   position: relative;
@@ -50,17 +55,20 @@
 }
 .btn button {
   font-size: large;
-  font-weight: 400;
-  color: black;
-  background-color:white;
+  font-weight: 700;
+  color: white;
+  background-color: black;
 }
 .btn input {
   width: 2rem;
-  height: 1.39rem;
+  height: 1.4rem;
   text-align: center;
   margin: 0.05rem;
   position: relative;
   bottom: 0.09rem;
+  color: #030003;
+  font-weight: 700;
+  font-size: 0.8rem;
 }
 
 .price p {
@@ -79,13 +87,18 @@
 
 .subtotal {
   text-align: center;
+  font-size: 1.5rem;
+  color: #00BCD4;;
 }
 .checkout {
   text-align: center;
 }
 .checkout button {
-  padding: 0.65rem;
+  padding: 0.4em;
   margin: 0.8rem;
+  color: #673AB7;
+  font-size: 1rem;
+  font-weight: 700;
 }
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
@@ -115,7 +128,10 @@
   .delete {
     position: relative;
     right: 8rem;
-    bottom: 1.5rem;
+    bottom: 1.3rem;
     transform: translateY(-50%);
+    color: red;
+    font-weight: 700;
+    font-size: 1.03rem;
   }
 }

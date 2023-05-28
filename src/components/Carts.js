@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+
 import "../css/Cart.css";
 import { useSelector, useDispatch } from "react-redux";
 import { removeProduct } from "../reducer/cartSlice";
 import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import { addtoProduct,incrementQuantity,decrementQuantity} from "../reducer/cartSlice";
+
 const Cart = () => {
-  const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
   const state = useSelector((state) => state.cart);
   const { isAuthenticated, loginWithRedirect, user } = useAuth0();
@@ -21,22 +22,13 @@ const Cart = () => {
   const calculateSubtotal = () => {
     let subtotal = 0;
     state.cart.forEach((item) => {
-      subtotal += item.price * qty;
+      subtotal += item.price * item.qty;
+      console.log(item.price)
     });
-    return subtotal;
+    console.log("sub",subtotal)
+    return subtotal; 
   };
-
-  const decreQty = () => {
-    if (qty > 1) {
-      setQty(qty - 1);
-    }
-  };
-
-  const increQty = () => {
-    console.log(qty);
-    setQty(qty + 1);
-  };
-
+  
   const handleCheckout = () => {
     if (isAuthenticated) {
       // Perform the checkout process
@@ -52,6 +44,16 @@ const Cart = () => {
     }
   };
 
+  const handleAddToCart = (item) => {
+    dispatch(addtoProduct(item));
+  };
+const incrementQty =(id)=>{
+  dispatch(incrementQuantity(id))
+}
+const decrementQty =(id)=>{
+  console.log("idw",id)
+    dispatch(decrementQuantity(id))
+}
   return (
     <div className="cartcontainer">
       {Array.isArray(state.cart) && state.cart.length > 0 ? (
@@ -66,15 +68,15 @@ const Cart = () => {
                 <h3>{val.title}</h3>
               </div>
               <div className="price">
-                <p ><i class="fa-solid fa-indian-rupee-sign fa-xs"></i>{val.price}</p>
+                <p ><i className="fa-solid fa-indian-rupee-sign fa-xs"></i>{val.price}</p>
               </div>
               <div className="btn">
-                <button onClick={() => decreQty()}>-</button>
+                <button onClick={() => decrementQty(val.id)}>-</button>
                 <input
-                  value={qty}
-                  onChange={(e) => setQty(parseInt(e.target.value))}
+                  value={val.qty}
+                  onChange={(e) =>  handleAddToCart(parseInt(e.target.value))}
                 />
-                <button onClick={() => increQty()}>+</button>
+                <button onClick={(e) => incrementQty(val.id)}>+</button>
               </div>
               <div>
                 <button className="delete" onClick={() => remove(val.id)}>
@@ -84,7 +86,7 @@ const Cart = () => {
             </div>
           ))}
           <div>
-            <h2 className="subtotal">Subtotal: <i class="fa-solid fa-indian-rupee-sign fa-xs"></i>{calculateSubtotal()}</h2>
+            <h2 className="subtotal">Subtotal: <i className="fa-solid fa-indian-rupee-sign fa-xs"></i>{calculateSubtotal()}/-</h2>
           </div>
           <div className="checkout">
             <Link to="/">
@@ -92,7 +94,10 @@ const Cart = () => {
             </Link>
 
             {isAuthenticated ? (
-              <button onClick={handleCheckout}>CheckOut</button>
+              <Link to="/cartoder">
+              <button onClick={()=>handleCheckout()}>CheckOut</button>
+              </Link>
+              
             ) : (
               <>
                 <button>CheckOut</button>

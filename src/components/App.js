@@ -1,19 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchProducts } from "../reducer/productSlice";
 import ProductItem from "./ProductItem";
 import Navbar from "./Navbar";
 import Carts from "./Carts";
+import CartOrder from "./CartOrder";
 function App() {
-  const dispatch = useDispatch();
-  const state = useSelector((state) => state);
-  console.log("state", state);
+  const dispatch =useDispatch()
   useEffect(() => {
     dispatch(fetchProducts());
-  }, []);
+  },[])
 
-  console.log(state.product.data, "state data");
   return (
     <div>
       <BrowserRouter>
@@ -21,9 +19,10 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<ProductItem product={state.product.data} />}
+            element={<ProductItem  />}
           />
-          <Route path="/carts/:id" element={<Carts />} />
+          <Route path="/carts" element={<Carts />} />
+          <Route path="/cartoder" element={<CartOrder/>}/>
         </Routes>
       </BrowserRouter>
     </div>

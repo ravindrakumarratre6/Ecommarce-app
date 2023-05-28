@@ -1,17 +1,6 @@
 .product-container {
-  width: 62rem;
-  height: 50rem;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 1rem 0 0 0;
-  
-}
 
-@media (max-width: 768px) {
-  .product-container {
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  }
 }

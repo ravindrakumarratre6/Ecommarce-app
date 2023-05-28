@@ -1,14 +1,16 @@
 import "../css/Productitem.css";
 import "../css/Productcontainer.css";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { addtoProduct } from "../reducer/cartSlice";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-const ProductItem = (props) => {
-  const { product } = props;
-  const dispatch = useDispatch();
+const ProductItem = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.product.data);
+  console.log(products,"products");
+
   const handleAddToCart = (item) => {
     dispatch(addtoProduct(item));
     toast.success("Added to cart");
@@ -17,7 +19,7 @@ const ProductItem = (props) => {
 
   return (
     <div className="product-container">
-      {product.map((item) => (
+      {products.map((item) => (
         <div className="cart-container" key={item.id}>
           <div>
             <div className="cart-img">
@@ -27,7 +29,7 @@ const ProductItem = (props) => {
               <h5>{item.title}</h5>
             </div>
             <div className="cart-value">
-              <p>Price : {item.price}</p>
+              <p>Price : <i className="fa-solid fa-indian-rupee-sign fa-xs"></i>{item.price}</p>
               <button
                 className="addtobtn"
                 onClick={() => handleAddToCart(item)}

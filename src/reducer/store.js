@@ -6,6 +6,6 @@ const store = configureStore({
     // reducer
     product: productReducer,
     cart:cartReducer
-  },
+  }
 });
 export default store;

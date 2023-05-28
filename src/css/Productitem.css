@@ -35,18 +35,23 @@
 }
 /* cart value price and rating */
 .cart-value {
-  color: rgb(30, 99, 148);
-  font-size: 0.92rem;
-  margin-left: 5rem;
-  font-weight: 300;
+  font-size: 1rem;
+  margin-left: 5.2rem;
+  font-weight: 900;
+}
+
+.cart-value P {
+  margin-left: 1rem;
+  color: hsl(239.61deg 100% 29.41%);
 }
 /* buttons */
 .addtobtn {
   position: relative;
   right: 0.46rem;
   color: black;
-  background-color: rgba(120, 234, 196, 0.924);
-  border-radius: 8%;
+  background-color: #00BCD4;
+  border-radius: 6%;
+  font-size: 1.3rem;
 }
 /* romove button */
 .remove {

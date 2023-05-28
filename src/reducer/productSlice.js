@@ -9,14 +9,31 @@ export const fetchProducts = createAsyncThunk("fetchProduct", async () => {
 });
 
 // productslice
+console.log("e3")
 const productSlice = createSlice({
   name: "products",
   initialState: {
     isLoding: false,
     data: [],
+    originaldata: [],
     isError: false,
   },
-  reducers: {},
+  reducers: {
+    updateProduct: (state, action) => {
+      console.log("error1");
+      const category = action.payload;
+
+      console.log(typeof category, "cate");
+      if (category === "all") {
+        state.data = state.originaldata;
+      } else {
+        const updatedata = state.originaldata.filter((item) => item.category === category);
+        console.log("udatedata",updatedata)
+        state.data = updatedata;
+      }
+      console.log("error2");
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.pending, (state) => {
       state.isLoding = true;
@@ -25,6 +42,8 @@ const productSlice = createSlice({
       state.isLoding = false;
       // state.data.push(action.payload)
       state.data = action.payload;
+      state.originaldata = action.payload;
+
     });
     builder.addCase(fetchProducts.rejected, (state, action) => {
       console.log("isError", action.payload);
@@ -32,4 +51,6 @@ const productSlice = createSlice({
     });
   },
 });
+console.log("e4")
+export const { updateProduct } = productSlice.actions;
 export default productSlice.reducer;
