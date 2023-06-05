@@ -15,6 +15,10 @@ const cartSlice = createSlice({
       state.cart = state.cart.filter((item) => item.id !== action.payload);
       state.totalProduct -= 1;
     },
+    isItemInCart: (state, action) => {
+      const existingItem = state.cart.some((product) => product.id === action.payload);
+      return existingItem ? true : false;
+    },
     incrementQuantity: (state, action) => {
       const product = state.cart.find((item) => item.id === action.payload);
       if (product) {
@@ -39,5 +43,6 @@ export const {
   incrementQuantity,
   decrementQuantity,
   calculateSubtotal,
+  isItemInCart
 } = cartSlice.actions;
 export default cartSlice.reducer;

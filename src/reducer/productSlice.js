@@ -8,6 +8,7 @@ export const fetchProducts = createAsyncThunk("fetchProduct", async () => {
   return res.json();
 });
 
+
 // productslice
 console.log("e3")
 const productSlice = createSlice({
@@ -19,20 +20,6 @@ const productSlice = createSlice({
     isError: false,
   },
   reducers: {
-    updateProduct: (state, action) => {
-      console.log("error1");
-      const category = action.payload;
-
-      console.log(typeof category, "cate");
-      if (category === "all") {
-        state.data = state.originaldata;
-      } else {
-        const updatedata = state.originaldata.filter((item) => item.category === category);
-        console.log("udatedata",updatedata)
-        state.data = updatedata;
-      }
-      console.log("error2");
-    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.pending, (state) => {
@@ -52,5 +39,5 @@ const productSlice = createSlice({
   },
 });
 console.log("e4")
-export const { updateProduct } = productSlice.actions;
+export const {  } = productSlice.actions;
 export default productSlice.reducer;
