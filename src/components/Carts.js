@@ -13,12 +13,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faIndianRupeeSign } from "@fortawesome/free-solid-svg-icons";
 import { FaRupeeSign } from "react-icons/fa";
-import { useState,useEffect} from "react";
+
 const Cart = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.cart);
   const { isAuthenticated, loginWithRedirect } = useAuth0();
-const [redirectToCheckout, setRedirectToCheckout] = useState(false);
   const navigate = useNavigate();
   const remove = (id) => {
     dispatch(removeProduct(id));
@@ -33,16 +32,9 @@ const [redirectToCheckout, setRedirectToCheckout] = useState(false);
     return subtotal;
   };
 
-    useEffect(() => {
-      if (redirectToCheckout) {
-        dispatch(removeProductData()); // Clear cart data
-        navigate("/cartorder", { state: { redirectToCheckout: true } }); // Redirect to the checkout page
-      }
-    }, [redirectToCheckout]);
-
     const handleCheckout = () => {
       if (isAuthenticated) {
-        setRedirectToCheckout(true); // Set flag to true to redirect and clear cart data
+        navigate("/cartorder");
       } else {
         loginWithRedirect();
       }

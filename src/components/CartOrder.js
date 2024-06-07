@@ -2,19 +2,10 @@ import React from "react";
 import "../css/CartOrder.css";
 import { useSelector } from "react-redux";
 import { FaRupeeSign } from "react-icons/fa";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+
 const CartOrder = () => {
   const order = useSelector((state) => state.cart.cart);
   const orderDate = new Date().toLocaleDateString();
-  const location = useLocation();
-  const redirectToCheckout = location.order?.redirectToCheckout;
-   useEffect(() => {
-     // Handle redirection from cart component
-     if (redirectToCheckout) {
-       // Implement any logic needed after successful redirection
-     }
-   }, [redirectToCheckout]);
   // Calculate the subtotal
   const calculateSubtotal = () => {
     let subtotal = 0;
