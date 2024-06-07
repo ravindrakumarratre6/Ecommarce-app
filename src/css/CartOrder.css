@@ -1,0 +1,45 @@
+.order-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  /* background-color: #f9f9f9; */
+  /* border-radius: 10px; */
+  overflow-y: hidden;
+}
+
+.order-container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+.heading-order{
+  margin-top: 3rem;
+}
+.order-date {
+  text-align: right;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+thead {
+  background-color: #f5f5f5;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.subtotal-container {
+  text-align: right;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}

@@ -1,0 +1,106 @@
+/* Resetting default margins */
+body {
+  margin: 0;
+}
+
+/* Container for the entire content */
+.container {
+  width: 100%; /* Takes up full width of the viewport */
+  padding: 0; /* No padding */
+  margin: 0; /* No margin */
+}
+
+/* Navigation bar styling */
+.nav {
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Align items vertically */
+  justify-content: space-between; /* Distribute items along the main axis */
+  list-style-type: none; /* Remove default list style */
+  padding: 0.7rem; /* Padding around the navigation */
+  gap: 0.5rem; /* Spacing between items */
+  background-color: rgba(235, 254, 255, 0.402); /* Background color */
+  margin: 0; /* No margin */
+  position: fixed; /* Fixed position */
+  top: 0; /* Stick to the top of the viewport */
+  left: 0; /* Stick to the left of the viewport */
+  width: 100%; /* Take up full width of the viewport */
+  z-index: 1000; /* Ensure it's on top of other elements */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Styling for links within the navigation bar */
+.ecom-nav {
+  text-decoration: none; /* Remove default underline */
+  color: black; /* Text color */
+}
+
+/* Styling for images within list items */
+.nav li img {
+  width: 2.1rem; /* Set width */
+  height: 1.9rem; /* Set height */
+}
+
+/* Styling for list items */
+.nav li {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Font family */
+  font-weight: 700; /* Font weight */
+}
+
+/* Styling for buttons within list items */
+.nav li button {
+  font-size: 1rem; /* Font size */
+  font-weight: 500; /* Font weight */
+}
+
+/* Styling for the category element (not used in the provided code) */
+.category {
+  flex: 1; /* Takes up remaining space */
+}
+
+/* Styling for the total count element */
+.total {
+  width: 1.079rem; /* Set width */
+  height: 1.02rem; /* Set height */
+  color:red; /* Text color */
+  text-align: center; /* Center text */
+  background-color: black; /* Background color */
+  border-radius: 50%; /* Make it circular */
+  position: relative; /* Relative positioning */
+  left: 2.59rem; /* Offset from the left */
+  bottom: 0.69rem; /* Offset from the bottom */
+}
+
+/* Media query for screens up to 768px wide */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: row; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start */
+    padding: 0.5rem; /* Increase padding */
+  }
+
+  .nav li {
+    margin-bottom: 0.5rem; /* Add spacing between items */
+  }
+
+  .total {
+    right:  -1rem; /* Adjust positioning */
+    top: -1.1rem; /* Adjust positioning */
+  }
+}
+
+/* Media query for screens up to 480px wide */
+@media (max-width: 480px) {
+  .nav {
+    padding: 0.5rem; /* Decrease padding */
+  }
+
+  .nav li img {
+    width: 1.8rem; /* Adjust image size */
+    height: 1.6rem; /* Adjust image size */
+  }
+
+  .total {
+    left: 1rem; /* Adjust positioning */
+    bottom: 0.4rem; /* Adjust positioning */
+  }
+}
