@@ -5,7 +5,9 @@ import {
   addToProduct,
   incrementQuantity,
   decrementQuantity,
-  removeProductData
+  clearCart,
+  setOrder,
+  clearOrder,
 } from "../reducer/cartSlice";
 import { ToastContainer, toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
@@ -13,12 +15,19 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faIndianRupeeSign } from "@fortawesome/free-solid-svg-icons";
 import { FaRupeeSign } from "react-icons/fa";
-
+import { useEffect } from "react";
 const Cart = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.cart);
   const { isAuthenticated, loginWithRedirect } = useAuth0();
   const navigate = useNavigate();
+
+    // useEffect(() => {
+    //  // how clearchart
+      
+    //   console.log("Current cart state: ", state.cart);
+    // }, []);
+
   const remove = (id) => {
     dispatch(removeProduct(id));
     toast.error("Removed from cart");
@@ -32,13 +41,23 @@ const Cart = () => {
     return subtotal;
   };
 
-    const handleCheckout = () => {
-      if (isAuthenticated) {
-        navigate("/cartorder");
-      } else {
-        loginWithRedirect();
-      }
-    };
+const handleCheckout = () => {
+  if (isAuthenticated) {
+    dispatch(setOrder(state.cart)); // Set the order data
+    //  // Clear the cart
+    // dispatch(clearOrder())
+    dispatch(clearCart());
+    navigate("/cartorder"); // Navigate to the CartOrder page
+    toast.success("Thank you for your order!"); // Display success toast
+  } else {
+    loginWithRedirect();
+  }
+};
+
+useEffect(() => {
+  console.log("Current cart state: ", state.cart);
+}, [state.cart]);
+
 
   const handleAddToCart = (item) => {
     dispatch(addToProduct(item));

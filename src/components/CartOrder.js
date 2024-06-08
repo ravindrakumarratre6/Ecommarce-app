@@ -2,10 +2,16 @@ import React from "react";
 import "../css/CartOrder.css";
 import { useSelector } from "react-redux";
 import { FaRupeeSign } from "react-icons/fa";
-
+import { useEffect } from "react";
 const CartOrder = () => {
-  const order = useSelector((state) => state.cart.cart);
+  const order = useSelector((state) => state.cart.order);
   const orderDate = new Date().toLocaleDateString();
+console.log("order",order)
+
+  useEffect(() => {
+    console.log("Cart state on CartOrder page: ", order);
+  }, [order]);
+
   // Calculate the subtotal
   const calculateSubtotal = () => {
     let subtotal = 0;
